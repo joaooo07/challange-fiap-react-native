@@ -9,8 +9,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
-
-
+import { useTranslation } from 'react-i18next';
 
 const USER_NAME_KEY = 'prefs_user_name';
 const USER_ID_KEY = 'prefs_user_id';
@@ -23,7 +22,9 @@ const Preferences: React.FC<Props> = ({ navigation }) => {
   const [userName, setUserName] = useState<string>('João Pedro Motta');
   const [userId, setUserId]     = useState<string>('RM556557');
   const [email, setEmail]       = useState<string>('jpmarcolinix@gmail.com');
-  const [role, setRole]         = useState<string>('Administrador');
+  const [role, setRole]         = useState<string>('Admin');
+
+  const { t, i18n } = useTranslation(); 
 
   useEffect(() => {
     (async () => {
@@ -38,24 +39,28 @@ const Preferences: React.FC<Props> = ({ navigation }) => {
     })();
   }, []);
 
+  if (!i18n.isInitialized) {
+    return <Text style={{ color: 'white' }}>Carregando idioma...</Text>;
+  }
+
   return (
     <ScrollView
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      <Text style={styles.header}>Perfil do Usuário</Text>
+      <Text style={styles.header}>{t('user_profile')}</Text>
 
       <View style={styles.profileContainer}>
-        <Text style={styles.profileLabel}>Nome:</Text>
+        <Text style={styles.profileLabel}>{t('name')}:</Text>
         <Text style={styles.profileValue}>{userName}</Text>
 
-        <Text style={styles.profileLabel}>ID:</Text>
+        <Text style={styles.profileLabel}>{t('id')}:</Text>
         <Text style={styles.profileValue}>{userId}</Text>
 
         <Text style={styles.profileLabel}>E-mail:</Text>
         <Text style={styles.profileValue}>{email}</Text>
 
-        <Text style={styles.profileLabel}>Cargo:</Text>
+        <Text style={styles.profileLabel}>{t('role')}:</Text>
         <Text style={styles.profileValue}>{role}</Text>
       </View>
 
@@ -63,7 +68,7 @@ const Preferences: React.FC<Props> = ({ navigation }) => {
         style={styles.backButton}
         onPress={() => navigation.goBack()}
       >
-        <Text style={styles.backButtonText}>Voltar</Text>
+        <Text style={styles.backButtonText}>{t('back')}</Text>
       </TouchableOpacity>
     </ScrollView>
   );

@@ -15,5 +15,22 @@
   "name": "Nome",
   "id": "ID",
   "role": "Cargo",
-  "back": "Voltar"
+  "back": "Voltar",
+  "occupied": "Ocupada",
+  "free": "Livre",
+  "spot": "Vaga",
+  "brand": "Marca",
+  "plate": "Placa",
+  "color": "Cor",
+  "model": "Modelo",
+  "vacate_spot": "Desocupar Vaga",
+  "save": "Salvar",
+  "close": "Fechar",
+  "placeholder_brand": "ex: Honda",
+  "placeholder_plate": "ABC-1234",
+  "placeholder_color": "ex: Vermelho",
+  "placeholder_model": "ex: CG 160",
+  "select_patio": "Selecione o Pátio:",
+  "available_spots": "Vagas Disponíveis:",
+  "cancel": "Cancelar"
 }

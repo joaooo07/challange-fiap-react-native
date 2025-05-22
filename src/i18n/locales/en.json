@@ -15,5 +15,22 @@
   "name": "Name",
   "id": "ID",
   "role": "Role",
-  "back": "Back"
+  "back": "Back",
+  "occupied": "Occupied",
+  "free": "Free",
+  "spot": "Spot",
+  "brand": "Brand",
+  "plate": "Plate",
+  "color": "Color",
+  "model": "Model",
+  "vacate_spot": "Vacate Spot",
+  "save": "Save",
+  "close": "Close",
+  "placeholder_brand": "e.g. Honda",
+  "placeholder_plate": "ABC-1234",
+  "placeholder_color": "e.g. Red",
+  "placeholder_model": "e.g. CG 160",
+  "select_patio": "Select Yard:",
+  "available_spots": "Available Spots:",
+  "cancel": "Cancel"
 }

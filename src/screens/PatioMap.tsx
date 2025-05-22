@@ -13,7 +13,7 @@ import {
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import { getSlots, saveSlots, Slot as SlotType } from '../storage/storage';
-
+import { useTranslation } from 'react-i18next'; // i18n importado
 
 const patiosData: Record<string, SlotType[]> = {
   p1: [
@@ -49,6 +49,7 @@ const PatioMap: React.FC<Props> = ({ route }) => {
   const [slots, setSlots] = useState<SlotType[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [form, setForm] = useState({ brand: '', plate: '', color: '', model: '' });
+  const { t } = useTranslation();
 
   const selectedSlot = slots.find(slot => slot.id === selectedId);
   const isOccupied = selectedSlot?.occupied;
@@ -86,9 +87,9 @@ const PatioMap: React.FC<Props> = ({ route }) => {
     <SafeAreaView style={styles.container}>
       <View style={styles.legendContainer}>
         <View style={[styles.legendItem, { backgroundColor: '#00A859' }]} />
-        <Text style={styles.legendText}>Ocupada</Text>
+        <Text style={styles.legendText}>{t('occupied')}</Text>
         <View style={[styles.legendItem, { backgroundColor: '#444' }]} />
-        <Text style={styles.legendText}>Livre</Text>
+        <Text style={styles.legendText}>{t('free')}</Text>
       </View>
 
       <ScrollView contentContainerStyle={styles.grid} showsVerticalScrollIndicator>
@@ -112,49 +113,49 @@ const PatioMap: React.FC<Props> = ({ route }) => {
           <View style={styles.modalOverlay}>
             <View style={styles.modalContent}>
               <ScrollView>
-                <Text style={styles.modalTitle}>Vaga {selectedSlot.id}</Text>
+                <Text style={styles.modalTitle}>{t('spot')} {selectedSlot.id}</Text>
                 {isOccupied ? (
                   <>
                     <Text style={styles.modalLabel}>
-                      Marca: <Text style={styles.modalValue}>{selectedSlot.brand}</Text>
+                      {t('brand')}: <Text style={styles.modalValue}>{selectedSlot.brand}</Text>
                     </Text>
                     <Text style={styles.modalLabel}>
-                      Placa: <Text style={styles.modalValue}>{selectedSlot.plate}</Text>
+                      {t('plate')}: <Text style={styles.modalValue}>{selectedSlot.plate}</Text>
                     </Text>
                     <Text style={styles.modalLabel}>
-                      Cor: <Text style={styles.modalValue}>{selectedSlot.color}</Text>
+                      {t('color')}: <Text style={styles.modalValue}>{selectedSlot.color}</Text>
                     </Text>
                     <Text style={styles.modalLabel}>
-                      Modelo: <Text style={styles.modalValue}>{selectedSlot.model}</Text>
+                      {t('model')}: <Text style={styles.modalValue}>{selectedSlot.model}</Text>
                     </Text>
                     <Pressable style={styles.vacateButton} onPress={handleVacate}>
-                      <Text style={styles.vacateButtonText}>Desocupar Vaga</Text>
+                      <Text style={styles.vacateButtonText}>{t('vacate_spot')}</Text>
                     </Pressable>
                   </>
                 ) : (
                   <>
-                    <Text style={styles.formLabel}>Marca:</Text>
+                    <Text style={styles.formLabel}>{t('brand')}:</Text>
                     <TextInput
                       style={styles.input}
                       placeholder="e.g. Honda"
                       value={form.brand}
                       onChangeText={text => setForm({ ...form, brand: text })}
                     />
-                    <Text style={styles.formLabel}>Placa:</Text>
+                    <Text style={styles.formLabel}>{t('plate')}:</Text>
                     <TextInput
                       style={styles.input}
                       placeholder="ABC-1234"
                       value={form.plate}
                       onChangeText={text => setForm({ ...form, plate: text })}
                     />
-                    <Text style={styles.formLabel}>Cor:</Text>
+                    <Text style={styles.formLabel}>{t('color')}:</Text>
                     <TextInput
                       style={styles.input}
                       placeholder="e.g. Vermelho"
                       value={form.color}
                       onChangeText={text => setForm({ ...form, color: text })}
                     />
-                    <Text style={styles.formLabel}>Modelo:</Text>
+                    <Text style={styles.formLabel}>{t('model')}:</Text>
                     <TextInput
                       style={styles.input}
                       placeholder="e.g. CG 160"
@@ -162,12 +163,12 @@ const PatioMap: React.FC<Props> = ({ route }) => {
                       onChangeText={text => setForm({ ...form, model: text })}
                     />
                     <Pressable style={styles.saveButton} onPress={handleSave}>
-                      <Text style={styles.saveButtonText}>Salvar</Text>
+                      <Text style={styles.saveButtonText}>{t('save')}</Text>
                     </Pressable>
                   </>
                 )}
                 <Pressable style={styles.closeButton} onPress={() => setSelectedId(null)}>
-                  <Text style={styles.closeButtonText}>Fechar</Text>
+                  <Text style={styles.closeButtonText}>{t('close')}</Text>
                 </Pressable>
               </ScrollView>
             </View>
