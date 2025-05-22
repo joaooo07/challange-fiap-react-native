@@ -1,0 +1,19 @@
+{
+  "login": "Entrar",
+  "email": "E-mail",
+  "password": "Senha",
+  "invalid_credentials": "Credenciais inválidas",
+  "or": "— ou —",
+  "no_account": "Não tem conta? Cadastre-se",
+  "patios": "Ver Pátios",
+  "form_entry": "Cadastro de Motos",
+  "profile": "Perfil",
+  "patio_name_1": "Pátio Brasil 1 - Localização",
+  "patio_name_2": "Pátio Brasil 2 - Localização",
+  "patio_name_3": "Pátio Brasil 3 - Localização",
+  "user_profile": "Perfil do Usuário",
+  "name": "Nome",
+  "id": "ID",
+  "role": "Cargo",
+  "back": "Voltar"
+}

@@ -1,0 +1,19 @@
+{
+  "login": "Sign In",
+  "email": "Email",
+  "password": "Password",
+  "invalid_credentials": "Invalid credentials",
+  "or": "— or —",
+  "no_account": "Don't have an account? Sign up",
+  "patios": "View Patios",
+  "form_entry": "Register Motorcycle",
+  "profile": "Profile",
+  "patio_name_1": "Yard USA 1 - Location",
+  "patio_name_2": "Yard USA 2 - Location",
+  "patio_name_3": "Yard USA 3 - Location",
+  "user_profile": "User Profile",
+  "name": "Name",
+  "id": "ID",
+  "role": "Role",
+  "back": "Back"
+}

@@ -14,6 +14,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import { getSlots, saveSlots, Slot as SlotType } from '../storage/storage';
 
+
 const patiosData: Record<string, SlotType[]> = {
   p1: [
     { id: 'A1', occupied: true, brand: 'Honda', plate: 'ABC-1234', color: 'Vermelho', model: 'CG 160' },

@@ -1,0 +1,19 @@
+{
+  "login": "Iniciar sesión",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "invalid_credentials": "Credenciales inválidas",
+  "or": "— o —",
+  "no_account": "¿No tienes cuenta? Regístrate",
+  "patios": "Ver Patios",
+  "form_entry": "Registro de Motos",
+  "profile": "Perfil",
+  "patio_name_1": "Patio México 1 - Ubicación",
+  "patio_name_2": "Patio México 2 - Ubicación",
+  "patio_name_3": "Patio México 3 - Ubicación",
+  "user_profile": "Perfil del Usuario",
+  "name": "Nombre",
+  "id": "ID",
+  "role": "Cargo",
+  "back": "Volver"
+}

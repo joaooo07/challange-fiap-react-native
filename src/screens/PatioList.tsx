@@ -2,32 +2,37 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
-
-const patios = [
-  { id: 'p1', name: 'Pátio Principal' },
-  { id: 'p2', name: 'Pátio Secundário' },
-  { id: 'p3', name: 'Pátio Coberto' }
-];
+import { useTranslation } from 'react-i18next';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'PatiosList'>;
 
-const PatiosList: React.FC<Props> = ({ navigation }) => (
-  <View style={styles.container}>
-    <FlatList
-      data={patios}
-      keyExtractor={item => item.id}
-      contentContainerStyle={styles.listContent}
-      renderItem={({ item }) => (
-        <TouchableOpacity
-          style={styles.item}
-          onPress={() => navigation.navigate('PatioMap', { patioId: item.id })}
-        >
-          <Text style={styles.itemText}>{item.name}</Text>
-        </TouchableOpacity>
-      )}
-    />
-  </View>
-);
+const patios = [
+  { id: 'p1', key: 'patio_name_1' },
+  { id: 'p2', key: 'patio_name_2' },
+  { id: 'p3', key: 'patio_name_3' }
+];
+
+const PatiosList: React.FC<Props> = ({ navigation }) => {
+  const { t } = useTranslation();
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={patios}
+        keyExtractor={item => item.id}
+        contentContainerStyle={styles.listContent}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.item}
+            onPress={() => navigation.navigate('PatioMap', { patioId: item.id })}
+          >
+            <Text style={styles.itemText}>{t(item.key)}</Text>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
